@@ -1,4 +1,4 @@
-# BadWolf(画布Canvas小游戏)
+# BadWolf(画布Canvas小游戏：https://a20086115.github.io/BadWolf/)
 #### 灰太狼抓羊（推箱子版本）
 - 使用canvas绘制地图、狼、羊等元素，通过监听键盘事件来实现的推箱子小游戏。
 
