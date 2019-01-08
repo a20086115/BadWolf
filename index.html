@@ -11,7 +11,7 @@
 	<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/level.js"></script>
 	<script type="text/javascript">
-		// 初始化第一关的地图
+		// 初始化第一关的地图 1 代表围墙，2代表灰太狼，4代表小绵羊，8代表笼子。
 		var map = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 		[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
 		[1, 0, 0, 0, 8, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
@@ -40,10 +40,10 @@
 
 		var c = document.getElementById("c");
 		var ctx = c.getContext('2d');
-		var wi;
+		var wi;  // 灰太狼位置
 		var wj;
-		var score = 0;
-		var level = 1;
+		var score = 0;  // 当前分数
+		var level = 1; // 当前关卡
 		var cage_num = 0;
 		var tree = new Image();
 		var wolf = new Image();
@@ -152,7 +152,9 @@
 							score++;
 
 						} else {
-							console.log("5");
+							// 走不动， 重新绘制（必须存在，否则在墙角等地方会有bug，尝试便知）
+							ctx.clearRect(wj * 50, wi * 50, 50, 50);
+							ctx.drawImage(wolf, wj * 50, wi * 50, 50, 50);
 						}
 
 						break;
@@ -194,7 +196,9 @@
 							wi = wi + 1;
 							score++;
 						} else {
-							console.log("5");
+							// 走不动， 重新绘制（必须存在，否则在墙角等地方会有bug，尝试便知）
+							ctx.clearRect(wj * 50, wi * 50, 50, 50);
+							ctx.drawImage(wolf, wj * 50, wi * 50, 50, 50);
 						}
 						break;
 					case 37://按键：左
@@ -235,7 +239,9 @@
 							wj = wj - 1;
 							score++;
 						} else {
-							console.log("5");
+							// 走不动， 重新绘制（必须存在，否则在墙角等地方会有bug，尝试便知）
+							ctx.clearRect(wj * 50, wi * 50, 50, 50);
+							ctx.drawImage(wolf, wj * 50, wi * 50, 50, 50);
 						}
 						break;
 					case 39://按键：D
@@ -277,7 +283,9 @@
 							wj = wj + 1;
 							score++;
 						} else {
-							console.log("5");
+							// 走不动， 重新绘制（必须存在，否则在墙角等地方会有bug，尝试便知）
+							ctx.clearRect(wj * 50, wi * 50, 50, 50);
+							ctx.drawImage(wolf, wj * 50, wi * 50, 50, 50);
 						}
 						break;
 				}
